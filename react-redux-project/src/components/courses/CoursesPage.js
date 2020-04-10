@@ -25,16 +25,21 @@ class CoursesPage extends Component {
   // arrow function help to avoid the bind function
 
   handleChange = e => {
-    //   this is is gonna auto bind the function 
+    //   this is is gonna auto bind the function
     let course = {
       ...this.state.course,
       title: e.target.value
     };
     this.setState({ course });
   };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    alert(this.state.course.title);
+  };
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h2>Course</h2>
         <h3>Add Course</h3>
         <input
@@ -42,7 +47,7 @@ class CoursesPage extends Component {
           value={this.state.course.title}
           onChange={this.handleChange}
         />
-        <input type="text" value="Save" />
+        <input type="submit" value="Save" />
       </form>
     );
   }
