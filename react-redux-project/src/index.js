@@ -30,3 +30,20 @@ componentDidError()
 and 
 getSnapShotBeforeUpdate()
   */
+
+//////////////////////////
+/*
+when redux is helpful
+-complex data flows 
+          so if you writing a static component ,
+           you don't need to use it
+
+inter-components communication
+     when you need to pass a data to different component that dont't
+     have a parent-child relationship
+
+many action such as : write , read , delete
+
+utilize the same data in many places
+-
+*/
