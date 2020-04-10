@@ -20,7 +20,7 @@ let obj = {
 
 let newObj = {...obj  , address: {...obj.address}}
 
-// try as much as you can the deep clone 
+// try to avoid as much as you can the deep clone 
 // 1. deep clone is expensive , in will needlessly slow the app
 // 2.deep cloning is wasteful since you only need to clone 
 // have changed
@@ -33,5 +33,5 @@ let newObj = {...obj  , address: {...obj.address}}
 // this is depending on the switch by finding the right state to change
 // by finding the action type
 // this is why we return the state that pass to them at the end of the switch statement 
-// all reducer will be called and only theone with the targeted action will produce the 
+// all reducer will be called and only the one with the targeted action will produce the 
 // change 
