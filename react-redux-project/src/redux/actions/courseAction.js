@@ -1,6 +1,7 @@
+import * as types from "./actionType";
 export const createAction = course => {
   return {
-    type: "CREATE_COURSE",
+    type: types.CREATE_COURSE,
     course: course
   };
 };

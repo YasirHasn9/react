@@ -25,7 +25,6 @@ class CoursesPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
     // here were dispatch the action
-    console.log(this.state.course);
     this.props.actions.createAction(this.state.course);
   };
   render() {
