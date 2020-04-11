@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import createAction from "../../redux/actions/courseAction";
+import * as courseActions from "../../redux/actions/courseAction";
 import PropTypes from "prop-types";
-
+import { bindActionCreators } from "redux";
+// what is bindActionCreators ?
+// this s hoc function that takes 2 arguments
+// one is the actionsCreator file with all the object that contains all
+// the actions that come from the functions
+// and the second argument is dispatch
+// in this case you dont need to use all the action in file
+// bindActionCreators will do it
+console.log("********", courseActions.createAction);
 class CoursesPage extends Component {
   state = {
     course: {
@@ -18,10 +26,9 @@ class CoursesPage extends Component {
     e.preventDefault();
     // here were dispatch the action
     console.log(this.state.course);
-    this.props.createAction(this.state.course);
+    this.props.actions.createAction(this.state.course);
   };
   render() {
-    console.log("///////", this.props.courses);
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>Course</h2>
@@ -47,13 +54,13 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    createAction: course => dispatch(createAction(course))
+    actions: bindActionCreators(courseActions, dispatch)
   };
 };
 
 CoursesPage.propTypes = {
   courses: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 };
 export default connect(
   mapStateToProps,
