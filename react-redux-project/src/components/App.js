@@ -14,6 +14,9 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/courses" component={CoursesPage} />
+
+        {/* this is a fallback component, in case , the user didnt find 
+        the page they want */}
         <Route component={PageNotFound} />
       </Switch>
     </div>

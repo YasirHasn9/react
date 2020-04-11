@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-
-// import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import App from "./components/App";
 import "./index.css";
-import configureStore from "./redux/configureStore";
+import configureStore from "./redux/configureReducer";
 import { Provider as ReduxProvider } from "react-redux";
+// im not gonna pass initialState for configureStore here
+// if i were creating server-rendering or initializing your redux store with
+// data from the localStorage
 const store = configureStore();
+// inside the configureStore you can a state that overwrite the the one
+// that we write in the reducer
+
 ReactDOM.render(
   <ReduxProvider store={store}>
     <Router>
